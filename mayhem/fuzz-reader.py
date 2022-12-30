@@ -4,7 +4,6 @@ import atheris
 import sys
 import io
 
-
 with atheris.instrument_imports():
     from reader import make_reader, InvalidFeedURLError
 
