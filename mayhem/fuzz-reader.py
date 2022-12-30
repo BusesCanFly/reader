@@ -11,19 +11,14 @@ with atheris.instrument_imports():
 def fuzz_singleInput(input_bytes):
     fdp = atheris.FuzzedDataProvider(input_bytes)
     data_string = fdp.ConsumeUnicodeNoSurrogates(sys.maxsize)
-    data_int = fdp.ConsumeInt(sys.maxsize)
 
     try:
         feed_url = data_string
 
         reader = make_reader("db.sqlite")
 
-        def add_and_update_feed():
-            reader.add_feed(feed_url, exist_ok=True)
-            reader.update_feeds()
-
-        add_and_update_feed()
-
+        reader.add_feed(feed_url, exist_ok=True)
+        reader.update_feeds()
         feed = reader.get_feed(feed_url)
     except InvalidFeedURLError:
         pass
