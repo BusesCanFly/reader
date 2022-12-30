@@ -1,0 +1,8 @@
+project: reader
+target: fuzz-reader
+
+image: ghcr.io/busescanfly/reader:latest
+
+cmds:
+  - cmd: /src/mayhem/fuzz-reader.py
+    libfuzzer: true
