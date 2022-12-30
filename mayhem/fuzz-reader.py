@@ -17,8 +17,8 @@ def fuzz_singleInput(input_bytes):
         reader = make_reader("db.sqlite")
 
         reader.add_feed(feed_url, exist_ok=True)
-        reader.update_feeds()
-        feed = reader.get_feed(feed_url)
+        # reader.update_feeds()
+        # feed = reader.get_feed(feed_url)
     except InvalidFeedURLError:
         pass
 
